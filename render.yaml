@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ssc-cgl-mock-test
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: AZURE_OPENAI_ENDPOINT
+        sync: false
+      - key: AZURE_OPENAI_API_KEY
+        sync: false
+      - key: AZURE_OPENAI_DEPLOYMENT
+        sync: false
+      - key: AZURE_OPENAI_API_VERSION
+        value: 2024-10-21

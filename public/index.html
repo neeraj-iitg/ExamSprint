@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI-powered SSC CGL Tier-I mock test practice" />
+  <title>ExamSprint — SSC CGL Mock Tests</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="ExamSprint home"><span class="brand-mark">E</span> ExamSprint</a>
+      <div class="exam-tag">SSC CGL · Tier I</div>
+    </header>
+
+    <section id="setupView" class="setup-view">
+      <div class="hero-copy">
+        <p class="eyebrow">PRACTICE WITH PURPOSE</p>
+        <h1>Make every mock<br /><em>count.</em></h1>
+        <p class="intro">Take a realistic SSC CGL practice test, get instant scoring, and turn each answer into a smarter next attempt.</p>
+        <div class="feature-row">
+          <span>✦ AI-generated sets</span><span>✦ Detailed solutions</span><span>✦ Performance insights</span>
+        </div>
+      </div>
+      <section class="setup-card" aria-labelledby="setup-title">
+        <div class="card-heading"><p class="eyebrow">NEW MOCK</p><h2 id="setup-title">Build your test</h2></div>
+        <form id="setupForm">
+          <div class="tier-picker" role="group" aria-label="Select SSC CGL mock tier"><button type="button" class="tier-option active" data-tier="1">Tier I</button><button type="button" class="tier-option" data-tier="2">Tier II · Paper I</button></div>
+          <div class="exam-format"><strong id="formatTitle">SSC CGL Tier I · Full Mock</strong><span id="formatDetails">100 questions · 60 minutes · +2 / −0.5 marking</span></div>
+          <input id="questionCount" type="hidden" value="100" />
+          <input id="duration" type="hidden" value="60" />
+          <input id="difficulty" type="hidden" value="SSC CGL Tier I standard" />
+          <button class="primary-button" type="submit"><span id="startButtonText">Start Tier I mock</span><span class="arrow">→</span></button>
+          <p class="generation-note" id="generationNote">Tier I: 25 each from Reasoning, General Awareness, Quantitative Aptitude, and English.</p>
+          <p class="fresh-questions" id="freshQuestions">✦ Every AI-generated mock is a fresh question paper. Tier II also includes a separate qualifying DEST practice requirement.</p>
+        </form>
+      </section>
+    </section>
+
+    <section id="loadingView" class="loading-view hidden" aria-live="polite"><div class="spinner"></div><p class="eyebrow">PREPARING YOUR MOCK</p><h2>Setting the right challenge…</h2><p id="loadingDescription">Curating questions across the SSC CGL sections.</p></section>
+
+    <section id="testView" class="test-view hidden">
+      <div class="test-header">
+        <div><p class="eyebrow" id="sectionLabel">GENERAL AWARENESS</p><h2 id="questionProgress">Question 1 of 12</h2></div>
+        <div class="timer-wrap"><span class="timer-label">TIME LEFT</span><time id="timer">20:00</time></div>
+      </div>
+      <div class="progress-track"><span id="progressBar"></span></div>
+      <div class="question-layout">
+        <aside class="navigator"><div class="nav-title"><span>QUESTION PALETTE</span><span id="answeredCount">0 answered</span></div><div id="sectionTabs" class="section-tabs"></div><div id="questionDots" class="question-dots"></div><p class="nav-key"><i class="answered-key"></i> Answered <i class="current-key"></i> Current</p></aside>
+        <article class="question-card"><p id="sectionProgress" class="section-progress"></p><p id="questionText" class="question-text"></p><div id="options" class="options"></div></article>
+      </div>
+      <div class="test-actions"><button class="text-button" id="previousButton">← Previous</button><div><button class="text-button" id="nextButton">Next →</button><button class="submit-button" id="submitButton">Submit test</button></div></div>
+    </section>
+
+    <section id="resultsView" class="results-view hidden">
+      <div class="results-intro"><p class="eyebrow">MOCK TEST COMPLETE</p><h1>Here’s your <em>review.</em></h1><p id="completionMessage"></p></div>
+      <section class="score-card"><div class="score-ring"><div><strong id="scoreValue">0</strong><span>/ 24</span></div></div><div><p class="eyebrow">YOUR SCORE</p><h2 id="scoreHeadline">Keep building.</h2><p id="scoreDescription"></p></div><div class="score-meta"><div><strong id="accuracyValue">0%</strong><span>Accuracy</span></div><div><strong id="timeUsed">0m 00s</strong><span>Time used</span></div></div></section>
+      <section class="analysis-section"><div class="section-heading"><div><p class="eyebrow">PERFORMANCE ANALYSIS</p><h2>By subject</h2></div><span class="marking-note" id="markingNote">+2 correct &nbsp; · &nbsp; −0.5 incorrect</span></div><div id="subjectAnalysis" class="subject-analysis"></div></section>
+      <section class="answer-section"><div class="section-heading"><div><p class="eyebrow">ANSWER REVIEW</p><h2>Learn from every question</h2></div><div class="filter-buttons" id="reviewFilters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="correct">Correct</button><button class="filter" data-filter="incorrect">Incorrect</button><button class="filter" data-filter="skipped">Skipped</button></div></div><div class="review-section-nav" id="reviewSectionTabs" aria-label="Answer review sections"></div><p class="review-section-summary" id="reviewSectionSummary"></p><div id="answerReview" class="answer-review"></div></section>
+      <button class="primary-button retry-button" id="retryButton"><span>Take another mock</span><span class="arrow">→</span></button>
+    </section>
+  </main>
+  <footer><span>EXAMSPRINT</span><span>Focused practice. Measurable progress.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
